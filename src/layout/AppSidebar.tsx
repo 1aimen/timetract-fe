@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState,useCallback } from "react";
 import Link from "next/link";
 import { CalendarSync, Gauge, Info, Settings, SlidersHorizontal, StickyNote, Users } from 'lucide-react';
-// import Image from "next/image";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "../context/SidebarContext";
 import {
@@ -24,24 +24,31 @@ const navItems: NavItem[] = [
   {
     icon: <Gauge />,
     name: "Dashboard",
-    subItems: [{ name: "Ecommerce", path: "/", pro: false }],
+    path: "/",
+  },
+
+  {
+    icon: <CalenderIcon />,
+    name: "Schedule",
+    path: "/schedule",
+  },
+    {
+    icon: <CalendarSync />,
+    name: "Leaves requests",
+    path: "/leaves-requests",
+  },
+    {
+    name: "Reports",
+    icon:   <StickyNote />
+,
+    path: "/reports",
   },
     {
     icon: <GridIcon />,
     name: "Projects",
-    subItems: [{ name: "Project1", path: "/", pro: false }],
-  },
-  {
-    icon: <CalenderIcon />,
-    name: "Agenda",
-    path: "/calendar",
-  },
-    {
-    icon: <CalendarSync />,
-    name: "Leaves",
-    path: "/calendar",
-  },
+        path: "/projects",
 
+  },
 
   // {
   //   name: "Forms",
@@ -51,21 +58,13 @@ const navItems: NavItem[] = [
   {
     name: "Teams",
     icon: <Users />,
-    subItems: [{ name: "Team A", path: "/basic-tables", pro: false }],
+        path: "/teams",
   },
-  {
-    name: "Reports",
-    icon:   <StickyNote />
-,
-    subItems: [{ name: "Team A", path: "/basic-tables", pro: false }],
-  },
+
   {
     name: "Manage organization",
     icon: <SlidersHorizontal />,
-    subItems: [
-      { name: "Blank Page", path: "/blank", pro: false },
-      { name: "404 Error", path: "/error-404", pro: false },
-    ],
+    path: "/organization"
   },
 ];
 
@@ -101,12 +100,12 @@ const othersItems: NavItem[] = [
     {
     icon: <Settings />,
     name: "Settings",
-    path: "/profile",
+    path: "/settings",
   },
       {
     icon: <Info />,
     name: "Support",
-    path: "/profile",
+    path: "/support",
   },
 ];
 
@@ -326,23 +325,12 @@ const AppSidebar: React.FC = () => {
       >
         <Link href="/">
           {isExpanded || isHovered || isMobileOpen ? (
-            // <>
-            //   <Image
-            //     className="dark:hidden"
-            //     src="/images/logo/logo.svg"
-            //     alt="Logo"
-            //     width={150}
-            //     height={40}
-            //   />
-            //   <Image
-            //     className="hidden dark:block"
-            //     src="/images/logo/logo-dark.svg"
-            //     alt="Logo"
-            //     width={150}
-            //     height={40}
-            //   />
-            // </>
-            <p>TimeTract</p>
+            <Image
+              width={154}
+              height={32}
+              src="/images/logo/logo_nobg.png"
+              alt="Logo"
+            />
           ) : (
             // <Image
             //   src="/images/logo/logo-icon.svg"

@@ -49,7 +49,7 @@ export default function SignUpForm() {
       }
 
       toast.success("Account created successfully!");
-      router.push("/signin");
+      router.push("/sign-in");
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err : any) {
       toast.error(err);
@@ -188,7 +188,7 @@ export default function SignUpForm() {
             <p className="text-sm font-normal text-center text-gray-700 dark:text-gray-400 sm:text-start">
               Already have an account?{" "}
               <Link
-                href="/signin"
+                href="/sign-in"
                 className="text-brand-500 hover:text-brand-600 dark:text-brand-400"
               >
                 Sign In

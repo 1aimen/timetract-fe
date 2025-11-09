@@ -1,31 +1,7 @@
-import React, { useState } from "react";
 
 export default function SidebarWidget() {
 
-   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
-  const [, setError] = useState<string | null>(null);
 
-  const handleGetLocation = () => {
-    if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your browser.");
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        setLocation({ lat: latitude, lng: longitude });
-        setError(null);
-        console.log("User location:", latitude, longitude);
-        // You can call your clock-in API here and send latitude/longitude
-        // e.g., clockIn({ lat: latitude, lng: longitude });
-      },
-      (err) => {
-        setError(err.message);
-      },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-    );
-  };
 
   return (
     <div
@@ -36,12 +12,9 @@ export default function SidebarWidget() {
         #1 Teams and shift management software
       </h3>
       <p className="mb-4 text-gray-500 text-theme-sm dark:text-gray-400">
-        Manage your team better with our solutions
+        Streamline teams management with our solutions
       </p>
-      <button onClick={handleGetLocation}>
-        Upgrade To Pro
 
-      </button>
       <a
         href="https://TimeTract.com/pricing"
         target="_blank"
@@ -50,11 +23,7 @@ export default function SidebarWidget() {
       >
         Upgrade To Pro
       </a>
-            {location && (
-        <p>
-          Location: {location.lat.toFixed(5)}, {location.lng.toFixed(5)}
-        </p>
-      )}
+
     </div>
   );
 }
