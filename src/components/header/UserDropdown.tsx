@@ -24,7 +24,7 @@ function toggleDropdown(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
       >
 
 
-        <Avatar alt="Aimen Bennacer" src={""}/>
+        <Avatar size="large" alt="Aimen Bennacer" src={""}/>
       </button>
 
       <Dropdown

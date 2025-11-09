@@ -7,7 +7,7 @@ import BasicTableOne from "@/components/tables/BasicTableOne";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
-import { PlusIcon } from "lucide-react";
+import { PlusIcon, Settings } from "lucide-react";
 import Button from "@/components/ui/button/Button";
 import Input from "@/components/form/input/InputField";
 
@@ -23,14 +23,13 @@ export default function TeamsView() {
 
   return (
     <div>
-      <PageBreadcrumb pageTitle="Teams" />
+      <PageBreadcrumb pageTitle="Manage Teams" />
       <div className="space-y-6">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Manage Teams</h2>
 
           <Dialog>
             <DialogTrigger asChild>
-              <Button >
+              <Button variant="outline" className="ml-auto">
                 Create team
                 <PlusIcon className="w-5 h-5" />
               </Button>
@@ -63,10 +62,16 @@ export default function TeamsView() {
           {teams.map((team) => (
             <TabsContent key={team} value={team}>
               <ComponentCard title={team}>
-                             <Button className="ml-auto" >
+                <div className="flex justify-end">
+                        <Button className="" variant="outline" >
                 Assign
                 <PlusIcon className="w-5 h-5" />
               </Button>
+               <Button className="ml-2 " variant="outline" >
+                <Settings className="w-5 h-5 " />
+              </Button>
+                  
+                  </div>                       
                 <BasicTableOne />
               </ComponentCard>
             </TabsContent>

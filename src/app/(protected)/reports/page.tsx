@@ -1,26 +1,53 @@
+'use client'
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
-import { Metadata } from "next";
-import React from "react";
+import React, { useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Reports | TimeTract",
-  description: "This is  Blank Page TimeTract Dashboard Template",
-};
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ComponentCard from "@/components/common/ComponentCard";
+import Button from "@/components/ui/button/Button";
+import { PlusIcon, Settings } from "lucide-react";
+import BasicTableOne from "@/components/tables/BasicTableOne";
 
-export default function BlankPage() {
+
+
+
+
+export default function ReportsPage() {
+
+    const [teams,] = useState(["Organization", "Team" ,"Personal","Timesheets"]);
+
   return (
     <div>
       <PageBreadcrumb pageTitle="Reports" />
-      <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">
-        <div className="mx-auto w-full max-w-[630px] text-center">
-          <h3 className="mb-4 font-semibold text-gray-800 text-theme-xl dark:text-white/90 sm:text-2xl">
-            Card Title Here
-          </h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400 sm:text-base">
-            Start putting content on grids or panels, you can also use different
-            combinations of grids.Please check out the dashboard and other pages
-          </p>
-        </div>
+
+      <div >
+        <Tabs defaultValue={teams[0]} className="w-full">
+          <TabsList>
+            {teams.map((team) => (
+              <TabsTrigger key={team} value={team}>
+                {team}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+
+          {teams.map((team) => (
+            <TabsContent key={team} value={team}>
+              <ComponentCard title={team}>
+                <div className="flex justify-end">
+                        <Button className="" variant="outline" >
+                Assign
+                <PlusIcon className="w-5 h-5" />
+              </Button>
+               <Button className="ml-2 " variant="outline" >
+                <Settings className="w-5 h-5 " />
+              </Button>
+                  
+                  </div>                       
+                <BasicTableOne />
+              </ComponentCard>
+            </TabsContent>
+          ))}
+        </Tabs>
       </div>
     </div>
   );

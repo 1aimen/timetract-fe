@@ -1,26 +1,83 @@
+"use client";
+
+import React, { useState } from "react";
+import ComponentCard from "@/components/common/ComponentCard";
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
-import { Metadata } from "next";
-import React from "react";
+import BasicTableOne from "@/components/tables/BasicTableOne";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
-export const metadata: Metadata = {
-  title: " Blank Page | TimeTract -  Dashboard Template",
-  description: "This is  Blank Page TimeTract Dashboard Template",
-};
+import { PlusIcon, Settings } from "lucide-react";
+import Button from "@/components/ui/button/Button";
+import Input from "@/components/form/input/InputField";
 
-export default function BlankPage() {
+export default function ProjectsView() {
+  const [Projects, setProjects] = useState(["Project 1", "Project 2"]);
+  const [newProject, setNewProject] = useState("");
+
+  const handleCreateProject = () => {
+    if (!newProject.trim()) return;
+    setProjects([...Projects, newProject]);
+    setNewProject("");
+  };
+
   return (
     <div>
-      <PageBreadcrumb pageTitle="Projects" />
-      <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">
-        <div className="mx-auto w-full max-w-[630px] text-center">
-          <h3 className="mb-4 font-semibold text-gray-800 text-theme-xl dark:text-white/90 sm:text-2xl">
-            Card Title Here
-          </h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400 sm:text-base">
-            Start putting content on grids or panels, you can also use different
-            combinations of grids.Please check out the dashboard and other pages
-          </p>
+      <PageBreadcrumb pageTitle="Manage Projects" />
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+         
+
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="ml-auto">
+                Create Project
+                <PlusIcon className="w-5 h-5" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle>Create a new Project</DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4 mt-4">
+                <Input
+                  placeholder="Project name"
+                  value={newProject}
+                  onChange={(e) => setNewProject(e.target.value)}
+                />
+                <Button onClick={handleCreateProject}>Create</Button>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
+
+        <Tabs defaultValue={Projects[0]} className="w-full">
+          <TabsList>
+            {Projects.map((Project) => (
+              <TabsTrigger key={Project} value={Project}>
+                {Project}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+
+          {Projects.map((Project) => (
+            <TabsContent key={Project} value={Project}>
+              <ComponentCard title={Project}>
+                <div className="flex justify-end">
+                        <Button className="" variant="outline" >
+                Assign
+                <PlusIcon className="w-5 h-5" />
+              </Button>
+               <Button className="ml-2 " variant="outline" >
+                <Settings className="w-5 h-5 " />
+              </Button>
+                  
+                  </div>                       
+                <BasicTableOne />
+              </ComponentCard>
+            </TabsContent>
+          ))}
+        </Tabs>
       </div>
     </div>
   );
