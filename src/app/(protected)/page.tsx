@@ -5,6 +5,7 @@ import QuickActions from "@/components/dashboard/QuickActions";
 import RecentActivity from "@/components/dashboard/RecentActivity";
 import TodaySchedule from "@/components/dashboard/TodaySchedule";
 import React from "react";
+import Alert from "@/components/ui/alert/Alert";
 
 
 
@@ -13,7 +14,15 @@ export default function BlankPage() {
     <div>
       <PageBreadcrumb pageTitle="Home" />
     
-          <div className="col-span-12 space-y-6 xl:col-span-7">
+          <Alert
+            variant="info"
+            title="Success Message"
+            message="Be cautious when performing this action."
+            showLink={true}
+            linkHref="/"
+            linkText="Learn more"
+          />    
+                <div className="col-span-12 mt-6 space-y-6 xl:col-span-7">
         <DataCard />
 
 

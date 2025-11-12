@@ -812,7 +812,7 @@ span.flatpickr-weekday,
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #0b1720;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -853,3 +853,5 @@ span.flatpickr-weekday,
     @apply bg-background text-foreground;
   }
 }
+
+

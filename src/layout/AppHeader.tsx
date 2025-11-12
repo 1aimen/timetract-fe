@@ -1,5 +1,6 @@
 "use client";
 import { ThemeToggleButton } from "@/components/common/ThemeToggleButton";
+import TaskWidget from "@/components/dashboard/TaskWidget";
 import NotificationDropdown from "@/components/header/NotificationDropdown";
 import UserDropdown from "@/components/header/UserDropdown";
 import { useSidebar } from "@/context/SidebarContext";
@@ -156,6 +157,7 @@ const AppHeader: React.FC = () => {
             </form>
           </div> */}
         </div>
+        <TaskWidget/>
         <div
           className={`${
             isApplicationMenuOpen ? "flex" : "hidden"

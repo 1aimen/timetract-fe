@@ -29,7 +29,7 @@ export default function TeamsView() {
 
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="outline" className="ml-auto">
+              <Button className="ml-auto">
                 Create team
                 <PlusIcon className="w-5 h-5" />
               </Button>
