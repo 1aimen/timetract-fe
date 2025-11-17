@@ -134,6 +134,7 @@ export default function Leave() {
           {leaveRequests.map((request) => (
             <LeaveHistoryCard key={request.id} request={request} onUpdate={handleUpdateLeave} />
           ))}
+          
         </div>
       </div>      </div>
     </div>

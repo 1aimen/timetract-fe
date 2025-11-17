@@ -30,7 +30,7 @@ const navItems: NavItem[] = [
   {
     icon: <CalenderIcon />,
     name: "Schedule",
-    path: "/schedule",
+    path: "/schedule/month-view",
   },
     {
     icon: <CalendarSync />,
