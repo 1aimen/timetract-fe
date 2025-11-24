@@ -1,4 +1,4 @@
-'use client'
+
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
 import { DataCard } from "@/components/dashboard/DataCard";
 import QuickActions from "@/components/dashboard/QuickActions";
@@ -6,10 +6,14 @@ import RecentActivity from "@/components/dashboard/RecentActivity";
 import TodaySchedule from "@/components/dashboard/TodaySchedule";
 import React from "react";
 import Alert from "@/components/ui/alert/Alert";
+import { getEvents, getProjects, getTeams, getUsers } from "@/components/calendar/requests";
+import { CalendarProvider } from "@/components/calendar/contexts/calendar-context";
 
 
 
-export default function BlankPage() {
+export default async function BlankPage() {
+    const [events, users,teams,projects] = await Promise.all([getEvents(), getUsers(),getTeams(),getProjects()]);
+  
   return (
     <div>
       <PageBreadcrumb pageTitle="Home" />
@@ -35,7 +39,9 @@ export default function BlankPage() {
 
       <div className="grid grid-cols-1 gap-4 pt-6 sm:grid-cols-2 md:gap-6">
         <RecentActivity />
+        <CalendarProvider users={users} events={events} teams={teams} projects={projects}>
         <QuickActions/>
+        </CalendarProvider>
       </div>
         </div>
 

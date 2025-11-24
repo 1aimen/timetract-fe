@@ -9,6 +9,7 @@ import {
   FileText,
 
 } from 'lucide-react'
+import { AddEventDialog } from '../calendar/components/dialogs/add-event-dialog'
 
 export const QuickActions = () => {
   return (
@@ -20,10 +21,13 @@ export const QuickActions = () => {
       </div>
 
       <div className="pt-3 space-y-3">
+                <AddEventDialog>
         <Button variant="outline" className="w-full justify-start">
           <Calendar className="w-4 h-4 mr-2" />
           Create Schedule
         </Button>
+        </AddEventDialog>
+
 
         <Button variant="outline" className="w-full justify-start">
           <Users className="w-4 h-4 mr-2" />

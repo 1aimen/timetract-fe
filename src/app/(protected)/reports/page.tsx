@@ -23,7 +23,7 @@ export default function ReportsPage() {
       <PageBreadcrumb pageTitle="Reports" />
 
       <div >
-        <Tabs defaultValue={teams[0]}  className="flex overflow-x-auto whitespace-nowrap scrollbar-hide">
+        <Tabs defaultValue={teams[0]}  className="flex ">
   <TabsList>            {teams.map((team) => (
               <TabsTrigger key={team} value={team}  className="flex-shrink-0">
                 {team}
@@ -34,14 +34,14 @@ export default function ReportsPage() {
           {teams.map((team) => (
             <TabsContent key={team} value={team}>
               <ComponentCard title={team}>
-                <div className="flex justify-end">
+                <div className="flex space-x-4 justify-end">
                         <Button className="" variant="outline" >
                 Schedule
               </Button>
                                       <Button className="" variant="outline" >
                 Export
               </Button>
-               <Button className="ml-2 " variant="outline" >
+               <Button className=" " variant="outline" >
                 <Settings className="w-5 h-5 " />
               </Button>
                   

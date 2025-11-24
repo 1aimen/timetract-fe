@@ -108,15 +108,12 @@ export default function Leave() {
       {/* Leave History */}
       <div>
         <div className="my-6">
-          <div className="font-semibold text-lg">Leave History</div>
-          <div className="text-gray-400 text-sm">
-            View all your leave requests and their status
-          </div>
+
         </div>
     <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white px-4 pb-3 pt-4 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6">
       <div className="flex flex-col gap-2 mb-4 sm:flex-row sm:items-center sm:justify-between">
         <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
-          Recent Activity
+          Leave history
         </h3>
 
         <div className="flex items-center gap-3">

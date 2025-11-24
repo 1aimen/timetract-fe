@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(protected)/schedule/layout.tsx.backup", "src/app/(protected)/schedule/layout.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(protected)/schedule/layout.tsx.backup", "src/app/(protected)/schedule/layout.tsx", "src/app/(protected)/layout.tsx.backup"],
   "exclude": ["node_modules"]
 }
